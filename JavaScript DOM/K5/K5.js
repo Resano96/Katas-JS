@@ -6,26 +6,78 @@ const albums = [
     "Iron Fist",
     "Pueba"
 ];
+const Title = document.createElement('h1')
+Title.textContent = 'Pagina con albums'
+Title.id = 'Titulo'
+document.getElementById('contenedor').appendChild(Title)
 
+const UnorderList = document.createElement('ul')
+UnorderList.id = 'Listado_de_albums'
+document.querySelector('#contenedor').appendChild(UnorderList)
 
-const ul = document.createElement("ul")
-for (let i in albums){
-    const listado = document.createElement("li")
-    const titulo = document.createElement("h2")
-    const texto = document.createElement("p")
-    const 
-    titulo.innerText = albums[i]
-    texto.innerText = "Descripcion del Titulo", albums[i]
-    ul.appendChild(listado)
-    listado.appendChild(titulo)
-    listado.appendChild(texto)
-    document.body.appendChild(ul)
-    listado.classList.add("Titulos")
-    titulo.id= albums[i]
-    
+for (album of albums) {
+    const elementListed = document.createElement('li')
+    elementListed.textContent = album
+    elementListed.class = 'album'
+    document.querySelector('#Listado_de_albums').appendChild(elementListed)
 }
-const titulo = document.querySelectorAll("h2")
 
-titulo.classList.toggle("futuro")
+const Desplegable = document.createElement('select')
+Desplegable.id = 'Desplegable'
 
-console.log(titulo)
+const opciones = [
+    "white",
+    "lightgray",
+    "beige",
+    "lightyellow",
+    "lightgreen",
+    "lightblue",
+    "lavender",
+    "peachpuff",
+    "mintcream",
+    "honeydew",
+    "aliceblue",
+    "seashell",
+    "lemonchiffon",
+    "papayawhip",
+    "powderblue"
+]
+
+opciones.forEach(color => {
+    const option = document.createElement('option')
+    option.value = color
+    option.textContent = color
+    Desplegable.appendChild(option)
+})
+
+document.querySelector('#contenedor').appendChild(Desplegable)
+
+Desplegable.addEventListener('change', (event) => {
+    document.body.style.backgroundColor = event.target.value
+})
+
+const Desplegable1 = document.createElement('select')
+Desplegable1.id = 'Desplegable'
+
+const opciones1 = ['vertical','horizontal']
+opciones1.forEach(direccion =>{
+    const option1 = document.createElement('option')
+    option1.value = direccion
+    option1.textContent = direccion
+    Desplegable1.appendChild(option1)
+})
+document.querySelector('#contenedor').appendChild(Desplegable1)
+
+function actualizarDireccion(orientacion){
+    if(orientacion === 'horizontal'){
+        UnorderList.style.display = 'flex'
+        UnorderList.style.flexDirection = 'row'
+    } else{
+        UnorderList.style.display = 'block'
+        UnorderList.style.flexDirection = ''
+    }
+}
+Desplegable1.addEventListener('change',(event) =>{
+    actualizarDireccion(event.target.value)
+})
+actualizarDireccion('vertical')
