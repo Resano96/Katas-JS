@@ -1,6 +1,6 @@
 import os
 
-TOTAL_EJERCICIOS = 5
+TOTAL_EJERCICIOS = 9
 
 for i in range(1, TOTAL_EJERCICIOS + 1):
     carpeta = f"K{i}"

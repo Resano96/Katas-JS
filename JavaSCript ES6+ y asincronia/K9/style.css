@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.escenario {
+  display: grid;
+  padding-top: -10%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  
+  background-image: url("https://static.wikia.nocookie.net/espokemon/images/3/3d/Campo_de_batalla_DPPt_6.png/");
+  background-size: cover;
+  background-position: center 150%;
+  background-repeat: no-repeat;
+}
+.title {
+  position: fixed;
+  font-size: 4rem;
+  font-weight: bolder;
+  color: #ffee00;
+  text-shadow: 
+    -2px -2px 0 blue,
+    2px -2px 0 blue,
+    -2px 2px 0 blue,
+    2px 2px 0 blue,
+    0px -2px 0 blue, 
+    0px 2px 0 blue, 
+    -2px 0px 0 blue,
+    2px 0px 0 blue;
+}
+.escenario h1,
+.escenario img {
+  display: flex;
+  justify-content: center;
+
+  margin: auto;
+}
+.escenario h1 {
+  width: 90%;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: rgb(62, 224, 62);
+}
+
+.escenario img {
+  width: 300px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  justify-self: center;
+  margin: 0;
+}
+
+.st_poke_name {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.st_poke {
+  grid-column: 2;
+  grid-row: 1;
+    align-self: end;      /* 👈 se baja dentro de su casilla */
+  justify-self: center;
+}
+
+.nd_poke {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: center;
+}
+
+.nd_poke_name {
+  grid-column: 2;
+  grid-row: 2;
+}
